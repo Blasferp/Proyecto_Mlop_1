@@ -153,7 +153,7 @@ def recomendacion(juego:str):
     with open('data/Matriz.pkl', 'rb') as file:
         modelo = joblib.load(file)
 
-    data = pd.read_parquet('data/df_prueba.parquet')
+    data = pd.read_parquet('data/df_recomendacion.parquet')
 
     if juego not in data['app_name'].tolist():
         return {"Respuesta": "No se encontraron resultados para la búsqueda realizada"}
@@ -175,28 +175,18 @@ def recomendacion(juego:str):
 
 @app.get("/UserForGenre/")
 def obtener_informacion_por_genero(genero: str):
-    # Cargar la base de datos
-    df = pd.read_parquet('data/df_endpoint4.parquet')
-
-    # Filtrar el DataFrame para el género especificado
-    df_genero = df[df['genres'] == genero]
-
-    # Agrupar por 'user_id' y sumar 'playtime_forever'
-    cantidad = df_genero.groupby('user_id')['playtime_forever'].sum().reset_index()
-
-    # Encontrar al usuario con la máxima cantidad de playtime
-    usuario_max_playtime = cantidad.loc[cantidad['playtime_forever'].idxmax()]['user_id']
-
-    # Filtrar el DataFrame original por usuario y género
-    df_usuario_genero = df[(df['genres'] == genero) & (df['user_id'] == usuario_max_playtime)]
-
-    # Agrupar por año y sumar el tiempo de juego
-    poranio = df_usuario_genero.groupby('anio')['playtime_forever'].sum().to_dict()
-
-    # Crear un diccionario con la información
-    dicc = {
-        'usuario': usuario_max_playtime,
-        'años': poranio
+    
+    genre_df = df[df['genres'] == genero]
+    
+    usuario = genre_df.groupby('user_id')['playtime_forever'].sum().idxmax()
+    
+    poranio = genre_df[genre_df['user_id'] == usuario].groupby('anio')['playtime_forever'].sum()
+    
+    poranio_dict = poranio.to_dict()
+    
+    response_dict = {
+        "usuario": usuario,
+        "años": poranio_dict
     }
 
-    return dicc
+    return response_dict
