@@ -41,7 +41,7 @@ def developer(desarrollador: str):
     return {f'Respuesta para {desarrollador}': porc_cont_free}
 
 
-@app.get("/sentiment/")
+@app.get("/eveloper_reviews_analysis/")
 def developer_reviews_analysis(desarrolladora: str):
 
     # Cargar la base de datos
