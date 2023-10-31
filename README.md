@@ -1,7 +1,7 @@
 # Machine Learning Operations:
  ### Análisis de Datos y Rcomendacion de juegos de la Plataforma Steam
 
-![Precios por fechas](steam.jpg)
+![Precios por fechas](.image/steam.jpg)
 
 # Índice
 
@@ -55,12 +55,11 @@ python main.py
 
 El Sistma de recomendacion utiliza un modelo que  tiene una relación ítem-ítemde el input es un juego y el output es una lista de juegos recomendados, para ello se aplico la similitud del cosenoregresión. Tenga en cuenta que se dimunuyo el tamaño de lla Matriz, debido a que era de un tamaño que no permitia subirse a github. por lo que se selecciono las filas un numero menor de filas al azar .
 
-
 ## Contacto
 
 ### Blas Fernando Pacios
 
-[![LinkedIn](Image\icons8-linkedin-48.png)](https://www.linkedin.com/in/blas-fernando-pacios-14a46a280/) [![WhatsApp](Image\icons8-whatsapp-48.png)](https://wa.me/qr/Y2BBW7A433C2L1)
+[![LinkedIn](./image/icons8-linkedin-48.png)](https://www.linkedin.com/in/blas-fernando-pacios-14a46a280/) [![WhatsApp](./image/icons8-whatsapp-48.png)](https://wa.me/qr/Y2BBW7A433C2L1)
 
 ## Tecnologías utilizadas
 
