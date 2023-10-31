@@ -153,7 +153,7 @@ def recomendacion(juego:str):
     with open('data/Matriz.pkl', 'rb') as file:
         modelo = joblib.load(file)
 
-    data = pd.read_parquet('data/df_reconocimiento.parquet')
+    data = pd.read_parquet('data/df_reconomendacion.parquet')
 
     if juego not in data['app_name'].tolist():
         return {"Respuesta": "No se encontraron resultados para la búsqueda realizada"}
