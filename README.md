@@ -54,7 +54,7 @@ python main.py
 
 ## Notas
 
-El Sistma de recomendacion utiliza un modelo que  tiene una relación ítem-ítemde el input es un juego y el output es una lista de juegos recomendados, para ello se aplico la similitud del cosenoregresión. Tenga en cuenta que se dimunuyo el tamaño de lla Matriz, debido a que era de un tamaño que no permitia subirse a github. por lo que se selecciono las filas un numero menor de filas al azar .
+El Sistma de recomendacion utiliza un modelo que  tiene una relación ítem-ítemde el input es un juego y el output es una lista de juegos recomendados, para ello se aplico la similitud del coseno. Tenga en cuenta que se dimunuyo el tamaño de la Matriz, debido a que era de un tamaño que no permitia subirse a github. por lo que se selecciono las filas un numero menor de filas al azar .
 
 ## Contacto
 
