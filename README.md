@@ -1,7 +1,7 @@
 # Machine Learning Operations:
  ### Análisis de Datos y Rcomendacion de juegos de la Plataforma Steam
 
-![Precios por fechas](Image\steam.jpg)
+![Precios por fechas](./Image\steam.jpg)
 
 # Índice
 
@@ -60,7 +60,7 @@ El Sistma de recomendacion utiliza un modelo que  tiene una relación ítem-íte
 
 ### Blas Fernando Pacios
 
-[![LinkedIn](Image\icons8-linkedin-48.png)](https://www.linkedin.com/in/blas-fernando-pacios-14a46a280/) [![WhatsApp](Image\icons8-whatsapp-48.png)](https://wa.me/qr/Y2BBW7A433C2L1)
+[![LinkedIn](./Image\icons8-linkedin-48.png)](https://www.linkedin.com/in/blas-fernando-pacios-14a46a280/) [![WhatsApp](./Image\icons8-whatsapp-48.png)](https://wa.me/qr/Y2BBW7A433C2L1)
 
 ## Tecnologías utilizadas
 
