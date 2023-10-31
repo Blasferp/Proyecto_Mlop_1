@@ -1,7 +1,7 @@
 # Machine Learning Operations:
  ### Análisis de Datos y Rcomendacion de juegos de la Plataforma Steam
 
-![Precios por fechas](.image/steam.jpg)
+![Precios por fechas](Image\steam.jpg)
 
 # Índice
 
@@ -9,7 +9,8 @@
 2. [Requisitos](#requisitos)
 3. [Modo de uso](#modo-de-uso)
 4. [Notas](#notas)
-5. [Tecnologías utilizadas](#tecnolog%C3%ADas-utilizadas)
+5. [Contacto](#contacto)
+6. [Tecnologías utilizadas](#tecnolog%C3%ADas-utilizadas)
 
 Este repositorio contiene funciones y un modelo para un sistema de recomendación para recomendar juegos de la plataforma Steam. Además, incluye la creación de una API REST utilizando FastAPI para acceder a las funciones y al sistema de recomendacion, La construcción de la API y la implementación del modelo se llevan a cabo en un entorno Render.
 
@@ -59,7 +60,7 @@ El Sistma de recomendacion utiliza un modelo que  tiene una relación ítem-íte
 
 ### Blas Fernando Pacios
 
-[![LinkedIn](./image/icons8-linkedin-48.png)](https://www.linkedin.com/in/blas-fernando-pacios-14a46a280/) [![WhatsApp](./image/icons8-whatsapp-48.png)](https://wa.me/qr/Y2BBW7A433C2L1)
+[![LinkedIn](Image\icons8-linkedin-48.png)](https://www.linkedin.com/in/blas-fernando-pacios-14a46a280/) [![WhatsApp](Image\icons8-whatsapp-48.png)](https://wa.me/qr/Y2BBW7A433C2L1)
 
 ## Tecnologías utilizadas
 
