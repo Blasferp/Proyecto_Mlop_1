@@ -107,7 +107,7 @@ def UsersRecommend(año: int):
     return resultado_formateado
 
 @app.get("/Dearrollador_menos_recomendado/")
-def UsersWorstDeveloper(año):
+def UsersWorstDeveloper(año: int):
     # Verificar si el año es un entero
     if not isinstance(año, int):
         return {f'El valor ingresado para el año ({año}) no es un número entero. Intente nuevamente.'}
@@ -174,7 +174,7 @@ def recomendacion(titulo:str):
     # Carga del DataFrame en un variable
     data_reducido = pd.read_parquet('Data/recomentadion_item_item.parquet')
 
-    if titulo not in data_reducido['app_name'].tolist():
+    if titulo not in data_reducido['Titulo'].tolist():
         return {"Respuesta": "No se encontraron resultados para la búsqueda realizada"}
 
     def get_recommendations(titulo, cosine_sim=modelo ):
