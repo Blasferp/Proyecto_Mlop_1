@@ -3,15 +3,21 @@ import pandas as pd
 import pyarrow.parquet as pq
 import joblib
 from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, HTTPException
+import pickle
+
 
 app = FastAPI()
 
 
 @app.get("/readme", response_class=HTMLResponse)
 def get_readme():
-    with open("README.md", "r", encoding="utf-8") as readme_file:
-        readme_content = readme_file.read()
-    return readme_content
+    try:
+        with open("README.md", "r", encoding="utf-8") as readme_file:
+            readme_content = readme_file.read()
+        return HTMLResponse(content=readme_content)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="README.md not found")
 
 @app.get("/Genero_por_Año/")
 def PlayTimeGenre(genero:str):
@@ -174,6 +180,7 @@ def sentiment_analysis(empresa_desarrolladora: str):
 
 @app.get("/Recomenadcion_Item_Item/")
 def recomendacion(titulo:str):
+    
     # Cargar el modelo entrenado desde el archivo pickle
     with open('data/Matriz.pkl', 'rb') as file:
         modelo = joblib.load(file)
