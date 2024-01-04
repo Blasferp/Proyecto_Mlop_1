@@ -18,6 +18,7 @@ def get_readme():
         return HTMLResponse(content=readme_content)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="README.md not found")
+   
 
 @app.get("/Genero_por_Año/")
 def PlayTimeGenre(genero:str):
