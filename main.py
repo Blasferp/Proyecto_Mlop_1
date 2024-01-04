@@ -12,12 +12,9 @@ app = FastAPI()
 
 @app.get("/readme", response_class=HTMLResponse)
 def get_readme():
-    try:
-        with open("README.md", "r", encoding="utf-8") as readme_file:
-            readme_content = readme_file.read()
-        return HTMLResponse(content=readme_content)
-    except FileNotFoundError:
-        raise HTTPException(status_code=404, detail="README.md not found")
+    with open("README.md", "r", encoding="utf-8") as readme_file:
+        readme_content = readme_file.read()
+    return readme_content
    
 
 @app.get("/Genero_por_Año/")
