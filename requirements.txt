@@ -4,4 +4,3 @@ pandas
 uvicorn
 pyarrow
 joblib
-pickle
