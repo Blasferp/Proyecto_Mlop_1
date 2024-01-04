@@ -177,41 +177,48 @@ def sentiment_analysis(empresa_desarrolladora: str):
     return resultado_formateado
 
 @app.get("/Recomenadcion_Item_Item/")
-def recomendacion(titulo:str):
-    
+def recomendacion(id_item: int):
     # Cargar el modelo entrenado desde el archivo pickle
-    with open('data/Matriz.pkl', 'rb') as file:
+    with open('/content/drive/MyDrive/Colab Notebooks/PI_1/Data/Matriz.pkl', 'rb') as file:
         modelo = joblib.load(file)
 
     # Carga del DataFrame en un variable
-    data_reducido = pd.read_parquet('Data/recomentadion_item_item.parquet')
+    data_reducido = pd.read_parquet('/content/drive/MyDrive/Colab Notebooks/PI_1/Data/recomentadion_item_item.parquet')
 
-    if titulo not in data_reducido['Titulo'].tolist():
+    if id_item not in data_reducido['Id_Item'].tolist():
         return {"Respuesta": "No se encontraron resultados para la búsqueda realizada"}
 
-    def get_recommendations(titulo, cosine_sim=modelo ):
-    
+    def get_recommendations(id_item, cosine_sim=modelo):
+
         # Encuentra el índice del juego con el título proporcionado en el DataFrame 'data_reducido'
-        idx = data_reducido[data_reducido['Titulo'] == titulo].index[0]
-        
-        # Calcula la similitud coseno entre el juego seleccionado y todos los demás juegos    
+        idx = data_reducido[data_reducido['Id_Item'] == id_item].index[0]
+
+        # Calcula la similitud coseno entre el juego seleccionado y todos los demás juegos
         sim_scores = list(enumerate(modelo[idx]))
-        
+
         # Ordena los juegos según su similitud coseno en orden descendente
         sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-        
-        # Selecciona los 5 juegos más similares (excluyendo el juego en sí)    
-        sim_scores = sim_scores[1:6]  
-        
-        # Obtiene los índices de los juegos seleccionados    
+
+        # Selecciona los 5 juegos más similares (excluyendo el juego en sí)
+        sim_scores = sim_scores[1:6]
+
+        # Obtiene los índices de los juegos seleccionados
         game_indices = [i[0] for i in sim_scores]
-        
+
         # Retorna los títulos de los juegos recomendados
-        return data_reducido['Titulo'].iloc[game_indices]
+        recommendations = data_reducido[['Id_Item', 'Titulo']].iloc[game_indices]
+        recommendations = recommendations.reset_index(drop=True)
+        recommendations.index = recommendations.index + 1
 
-    recommendations = get_recommendations(titulo)
+        # Organiza el diccionario resultante
+        dicc = {idx: {'Id_Item': row['Id_Item'], 'Titulo': row['Titulo']} for idx, row in recommendations.iterrows()}
 
-    dicc = recommendations.to_dict()
+        return dicc
 
-    return dicc
+    recommendations = get_recommendations(id_item)
+
+    return recommendations
+
+
+
 
