@@ -166,25 +166,42 @@ def sentiment_analysis(empresa_desarrolladora: str):
     return resultado_formateado
 
 @app.get("/Recomenadcion_Item_Item/")
-def get_recommendations(titulo, cosine_sim=cosine_similarity ):
-    # Encuentra el índice del juego con el título proporcionado en el DataFrame 'data_reducido'
-    idx = data_reducido[data_reducido['Titulo'] == titulo].index[0]
-    
-    # Calcula la similitud coseno entre el juego seleccionado y todos los demás juegos    
-    sim_scores = list(enumerate(cosine_sim[idx]))
-    
-    # Ordena los juegos según su similitud coseno en orden descendente
-    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-    
-    # Selecciona los 5 juegos más similares (excluyendo el juego en sí)    
-    sim_scores = sim_scores[1:6]  
-    
-    # Obtiene los índices de los juegos seleccionados    
-    game_indices = [i[0] for i in sim_scores]
-    
-    # Retorna los títulos de los juegos recomendados
-    return data_reducido['Titulo'].iloc[game_indices]
+def recomendacion(titulo:str):
+    # Cargar el modelo entrenado desde el archivo pickle
+    with open('data/Matriz.pkl', 'rb') as file:
+        modelo = joblib.load(file)
 
+    # Carga del DataFrame en un variable
+    data_reducido = pd.read_parquet('Data/recomentadion_item_item.parquet')
+
+    if titulo not in data_reducido['app_name'].tolist():
+        return {"Respuesta": "No se encontraron resultados para la búsqueda realizada"}
+
+    def get_recommendations(titulo, cosine_sim=modelo ):
+    
+        # Encuentra el índice del juego con el título proporcionado en el DataFrame 'data_reducido'
+        idx = data_reducido[data_reducido['Titulo'] == titulo].index[0]
+        
+        # Calcula la similitud coseno entre el juego seleccionado y todos los demás juegos    
+        sim_scores = list(enumerate(modelo[idx]))
+        
+        # Ordena los juegos según su similitud coseno en orden descendente
+        sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+        
+        # Selecciona los 5 juegos más similares (excluyendo el juego en sí)    
+        sim_scores = sim_scores[1:6]  
+        
+        # Obtiene los índices de los juegos seleccionados    
+        game_indices = [i[0] for i in sim_scores]
+        
+        # Retorna los títulos de los juegos recomendados
+        return data_reducido['Titulo'].iloc[game_indices]
+
+    recommendations = get_recommendations(titulo)
+
+    dicc = recommendations.to_dict()
+
+    return dicc
 
 @app.get("/Recomenadcion_Item_Usuario/")
 def obtener_informacion_por_genero(genero: str):
