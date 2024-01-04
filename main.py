@@ -179,11 +179,11 @@ def sentiment_analysis(empresa_desarrolladora: str):
 @app.get("/Recomenadcion_Item_Item/")
 def recomendacion(id_item: int):
     # Cargar el modelo entrenado desde el archivo pickle
-    with open('/content/drive/MyDrive/Colab Notebooks/PI_1/Data/Matriz.pkl', 'rb') as file:
+    with open('Data/Matriz.pkl', 'rb') as file:
         modelo = joblib.load(file)
 
     # Carga del DataFrame en un variable
-    data_reducido = pd.read_parquet('/content/drive/MyDrive/Colab Notebooks/PI_1/Data/recomentadion_item_item.parquet')
+    data_reducido = pd.read_parquet('Data/recomentadion_item_item.parquet')
 
     if id_item not in data_reducido['Id_Item'].tolist():
         return {"Respuesta": "No se encontraron resultados para la búsqueda realizada"}
