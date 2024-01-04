@@ -2,9 +2,16 @@ from fastapi import FastAPI
 import pandas as pd 
 import pyarrow.parquet as pq
 import joblib
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
+
+@app.get("/readme", response_class=HTMLResponse)
+def get_readme():
+    with open("README.md", "r", encoding="utf-8") as readme_file:
+        readme_content = readme_file.read()
+    return readme_content
 
 @app.get("/Genero_por_Año/")
 def PlayTimeGenre(genero:str):
