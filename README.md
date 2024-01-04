@@ -1,7 +1,7 @@
 # Machine Learning Operations:
  ### Análisis de Datos y Rcomendacion de juegos de la Plataforma Steam
 
-![Precios por fechas](Image/Steam.jpg)
+![Precios por fechas](Image\Steam.png)
 
 # Índice
 
