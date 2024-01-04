@@ -203,5 +203,3 @@ def recomendacion(titulo:str):
 
     return dicc
 
-@app.get("/Recomenadcion_Item_Usuario/")
-def obtener_informacion_por_genero(genero: str):
