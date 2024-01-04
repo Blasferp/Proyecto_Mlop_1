@@ -143,11 +143,14 @@ def sentiment_analysis(empresa_desarrolladora: str):
     if not isinstance(empresa_desarrolladora, str):
         return {f'El nombre de la empresa desarrolladora ({empresa_desarrolladora}) no es una cadena de caracteres. Intente nuevamente.'}
     
+    # Carga del DataFrame en un variable
+    endpoint_5 = pd.read_parquet('Data/endpoint_5.parquet')
+    
     # Convertir el género a minúsculas
     empresa_desarrolladora = empresa_desarrolladora.lower()
 
     # Filtro por la empresa desarrolladora
-    df_filtro = endpoint_4[endpoint_4['Desarrollador'] == empresa_desarrolladora]
+    df_filtro = endpoint_5[endpoint_5['Desarrollador'] == empresa_desarrolladora]
 
     # Verificar si el DataFrame resultante está vacío
     if df_filtro.empty:
@@ -183,5 +186,5 @@ def get_recommendations(titulo, cosine_sim=cosine_similarity ):
     return data_reducido['Titulo'].iloc[game_indices]
 
 
-@app.get("/UserForGenre/")
+@app.get("/Recomenadcion_Item_Usuario/")
 def obtener_informacion_por_genero(genero: str):
