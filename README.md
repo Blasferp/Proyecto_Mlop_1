@@ -54,7 +54,7 @@ python main.py
 
 ## Notas
 
-El Sistma de recomendacion utiliza un modelo que  tiene una relación ítem-ítemde el input es el Id_Item y el output es una lista de  5 juegos recomendados(con sus respectivos nombres e Id_Item), para ello se aplico la similitud del coseno. Tenga en cuenta que se dismunuyo el tamaño de la Matriz(por lo que se selecciono una matriz de 5000 items al azar), debido al tamaño que posee, genera inconvenientes en el deployement  .
+El Sistma de recomendacion utiliza un modelo que  tiene una relación ítem-ítem donde el input es el Id_Item y el output es una lista de  5 juegos recomendados(con sus respectivos nombres e Id_Item), para ello se aplico la similitud del coseno. Tenga en cuenta que se dismunuyo el tamaño de la Matriz (por lo que se selecciono 5000 items al azar), debido al tamaño que posee, genera inconvenientes en el deployement  .
 
 ## Contacto
 
