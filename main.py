@@ -16,7 +16,7 @@ def read_root():
             <head>
                 <style>
                     body {
-                        background-image: url('Image\steam.jpg');
+                        background-image: url('Image/steam.jpg');
                         background-size: cover;
                         background-position: center;
                         height: 100vh;
@@ -32,7 +32,7 @@ def read_root():
             <body>
                 <h1>API Consulta y recomendación de videojuegos Steam</h1>
                 <h2>Bienvenidos a la API del Proyecto N° 1 Machine Learning operations</h2>
-                <p>Puede ingresar agregando \Dcs a continuación de la URL actual de esta página para interactuar con la API</p>
+                <p>Puede ingresar agregando \Docs a continuación de la URL actual de esta página para interactuar con la API</p>
             </body>
         </html>
     """
