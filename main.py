@@ -16,7 +16,7 @@ def read_root():
             <head>
                 <style>
                     body {
-                        background-image: url('Image/steam.jpg');
+                        background-image: url('https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2021/01/steam-juegos-2203341.jpg?tf=1920x');
                         background-size: cover;
                         background-position: center;
                         height: 100vh;
