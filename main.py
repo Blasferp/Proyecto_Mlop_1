@@ -10,10 +10,8 @@ import pickle
 app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)
-def get_readme():
-    with open("README.md", "r", encoding="utf-8") as readme_file:
-        readme_content = readme_file.read()
-    return readme_content
+def bienvenidos():
+    return '#Bienvenidos a la API del Proyecto N° 1 Machine Learning operations:\n   ###Puede ingresar agregando \DOCS a continuación de la URL actual de esta página para interactuar con la API'
 
 @app.get("/readme", response_class=HTMLResponse)
 def get_readme():
