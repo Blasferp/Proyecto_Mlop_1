@@ -9,10 +9,6 @@ import pickle
 
 app = FastAPI()
 
-from fastapi import FastAPI, HTMLResponse
-
-app = FastAPI()
-
 @app.get("/", response_class=HTMLResponse)
 def read_root():
     mensaje = """
