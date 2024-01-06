@@ -10,8 +10,13 @@ import pickle
 app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)
-def bienvenidos():
-    return '#Bienvenidos a la API del Proyecto N° 1 Machine Learning operations:\n   ###Puede ingresar agregando \DOCS a continuación de la URL actual de esta página para interactuar con la API'
+def read_root():
+    mensaje = """
+        <h1>API Consulta y recomendación de videojuegos Steam</h1>
+        <h2>Bienvenidos a la API del Proyecto N° 1 Machine Learning operations</h2>
+        <p>Puede ingresar agregando \Dcs a continuación de la URL actual de esta página para interactuar con la API</p>
+    """
+    return mensaje
 
 @app.get("/readme", response_class=HTMLResponse)
 def get_readme():
