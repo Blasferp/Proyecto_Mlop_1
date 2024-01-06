@@ -12,11 +12,31 @@ app = FastAPI()
 @app.get("/", response_class=HTMLResponse)
 def read_root():
     mensaje = """
-        <h1>API Consulta y recomendación de videojuegos Steam</h1>
-        <h2>Bienvenidos a la API del Proyecto N° 1 Machine Learning operations</h2>
-        <p>Puede ingresar agregando \Dcs a continuación de la URL actual de esta página para interactuar con la API</p>
+        <html>
+            <head>
+                <style>
+                    body {
+                        background-image: url('Image\steam.jpg');
+                        background-size: cover;
+                        background-position: center;
+                        height: 100vh; /* Ajusta la altura según sea necesario */
+                        margin: 0; /* Elimina el margen por defecto del body */
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        color: white; /* Ajusta el color del texto según sea necesario */
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>API Consulta y recomendación de videojuegos Steam</h1>
+                <h2>Bienvenidos a la API del Proyecto N° 1 Machine Learning operations</h2>
+                <p>Puede ingresar agregando \Docs a continuación de la URL actual de esta página para interactuar con la API</p>
+            </body>
+        </html>
     """
-    return mensaje
+    return HTMLResponse(content=mensaje, status_code=200)
 
 @app.get("/readme", response_class=HTMLResponse)
 def get_readme():
