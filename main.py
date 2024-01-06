@@ -9,6 +9,11 @@ import pickle
 
 app = FastAPI()
 
+@app.get("/", response_class=HTMLResponse)
+def get_readme():
+    with open("README.md", "r", encoding="utf-8") as readme_file:
+        readme_content = readme_file.read()
+    return readme_content
 
 @app.get("/readme", response_class=HTMLResponse)
 def get_readme():
