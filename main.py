@@ -20,7 +20,7 @@ def read_root():
             <head>
                 <style>
                     body {
-                        background-image: url('https://ejemplo.com/imagen.jpg');
+                        background-image: url('Image\steam.jpg');
                         background-size: cover;
                         background-position: center;
                         height: 100vh;
