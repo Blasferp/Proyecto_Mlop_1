@@ -25,7 +25,7 @@ def read_root():
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        color: white;
+                        color: black;
                     }
                 </style>
             </head>
