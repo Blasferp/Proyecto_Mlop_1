@@ -183,12 +183,12 @@ def sentiment_analysis(empresa_desarrolladora: str):
     if not isinstance(empresa_desarrolladora, str):
         return {f'El nombre de la empresa desarrolladora ({empresa_desarrolladora}) no es una cadena de caracteres. Intente nuevamente.'}
     
+    # Convertir el género a minúsculas
+    empresa_desarrolladora = empresa_desarrolladora.lower()
+    
     # Carga del DataFrame en un variable
     endpoint_5 = pd.read_parquet('Data/endpoint_5.parquet')
     
-    # Convertir el género a minúsculas
-    empresa_desarrolladora = empresa_desarrolladora.lower()
-
     # Filtro por la empresa desarrolladora
     df_filtro = endpoint_5[endpoint_5['Desarrollador'] == empresa_desarrolladora]
 
