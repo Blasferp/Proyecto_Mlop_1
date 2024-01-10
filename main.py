@@ -25,7 +25,10 @@ def read_root():
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        color: black;
+                        color: white; /* Cambiado a blanco para mejorar la visibilidad del texto en un fondo oscuro */
+                    }
+                    h1, h2, p {
+                        color: black; /* Cambiado a negro para mejorar la visibilidad del texto en un fondo claro */
                     }
                 </style>
             </head>
@@ -37,7 +40,6 @@ def read_root():
         </html>
     """
     return HTMLResponse(content=mensaje, status_code=200)
-
 
 @app.get("/readme", response_class=HTMLResponse)
 def get_readme():
