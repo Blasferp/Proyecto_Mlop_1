@@ -25,8 +25,7 @@ def read_root():
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        color: white; /* Cambiado a blanco para mejorar la visibilidad del texto en un fondo oscuro */
-                    }
+                        }
                     h1, h2, p {
                         color: black; /* Cambiado a negro para mejorar la visibilidad del texto en un fondo claro */
                     }
